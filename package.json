@@ -1,0 +1,39 @@
+{
+  "name": "nuget-runner",
+  "version": "0.1.0",
+  "description": "Node wrapper for nuget.",
+  "homepage": "https://github.com/mikeobrien/node-nuget-runner",
+  "main": "src/nuget.js",
+  "bugs": {
+    "url": "https://github.com/mikeobrien/node-nuget-runner/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikeobrien/node-nuget-runner.git"
+  },
+  "keywords": [
+    "nuget"
+  ],
+  "scripts": {
+    "test": "gulp"
+  },
+  "author": "Mike O'Brien",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "files": [
+    "src/*.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "gulp": "~3.8.10",
+    "gulp-filter": "~1.0.2",
+    "gulp-jshint": "~1.9.0",
+    "gulp-mocha": "~1.1.1"
+  },
+  "dependencies": {
+    "q": "^1.1.1",
+    "underscore": "^1.7.0"
+  }
+}
