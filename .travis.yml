@@ -1,7 +1,8 @@
 language: node_js
 install:
   - sudo apt-get install mono-runtime
+  - npm install
 node_js:
   - "0.10"
 before_script:
-  - 'npm install -g gulp'
+  - npm install -g gulp
