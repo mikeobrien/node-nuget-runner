@@ -1,1 +1,1 @@
-C:\Windows\Microsoft.NET\Framework\v2.0.50727\csc /t:exe /out:ConsoleApp.exe ConsoleApp.cs
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc /t:exe /out:ConsoleApp.exe ConsoleApp.cs

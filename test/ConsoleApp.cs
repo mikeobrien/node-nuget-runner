@@ -1,5 +1,5 @@
 using System;
-using System.Collections.Generic;
+using System.Linq;
 
 namespace ConsoleApp
 {
@@ -7,22 +7,14 @@ namespace ConsoleApp
     {
         static int Main(string[] args)
         {
-            string command = null;
-
-            if (args.Length > 0) 
-            {
-                command = args[0];
-                if (args.Length > 1)
-                    args = new List<string>(args).GetRange(1, args.Length - 1).ToArray();
-            }
-
-            if (command == "exception") throw new Exception(  string.Join(" ", args));
+            var command = args.Any() ? args[0] : "";
+            if (command == "exception") throw new Exception(string.Join(" ", args.Skip(1).ToArray()));
             if (command == "return") 
             {
-                Console.Write("Error " + args[0]);
-                return int.Parse(args[0]);
+                Console.Write("Error " + args[1]);
+                return int.Parse(args[1]);
             }
-            if (command == "echo") Console.Write(string.Join(", ", args));
+            if (command == "echo") Console.Write(string.Join(", ", args.Skip(1).ToArray()));
             return 0;
         }
     }
