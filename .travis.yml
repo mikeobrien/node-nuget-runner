@@ -1,6 +1,7 @@
 language: node_js
 install:
   - sudo apt-get install mono-runtime
+  - mono -V
   - npm install
 node_js:
   - "0.10"
