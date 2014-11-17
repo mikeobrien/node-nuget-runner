@@ -1,6 +1,6 @@
 language: node_js
 install:
-  - sudo apt-get install mono-runtime
+  - sudo apt-get install mono-complete
   - mono -V
   - mono /home/travis/build/mikeobrien/node-nuget-runner/test/ConsoleApp.exe echo oh hai
   - npm install
