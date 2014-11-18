@@ -37,20 +37,20 @@ describe('runner', function() {
     });
 
     var exceptionMessage =
-        "Unhandled Exception:System.Exception: oh noes!" + 
+        "Unhandled Exception: System.Exception: oh noes!" + 
         "  at ConsoleApp.Program.Main (System.String[] args) " +
         "[0x00000] in <filename unknown>:0 " +
         "[ERROR] FATAL UNHANDLED EXCEPTION: System.Exception: " +
         "oh noes!  at ConsoleApp.Program.Main (System.String[] " +
-        "args) [0x00000] in <filename unknown>:0 ";
+        "args) [0x00000] in <filename unknown>:0";
 
     it('should fail on exception', function(done) {
         run([ 'exception', 'oh noes!' ])
             .fail(function(error) {
                 expect(error.code).to.equal(1);
                 expect(error.stdout).to.be.empty();
-                expect(error.stderr.join('').replace(/\n/g, ''))
-                            .to.deep.equal(exceptionMessage);
+                expect(error.stderr.join('').replace(/\s/g, ''))
+                    .to.deep.equal(exceptionMessage.replace(/\s/g, ''));
             })
             .done(function() { done(); });
     });
