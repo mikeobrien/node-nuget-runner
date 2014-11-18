@@ -15,22 +15,25 @@ module.exports = function run(command) {
 
     var nuget = child.spawn(path, args);
 
-    var log = function(message, buffer) { 
+    var log = function(message) { 
         message = message.toString('utf8');
         console.log(message); 
-        buffer.push(message);
+        return message;
     };
 
-    var stdout = [];
-    var stderr = [];
+    var stdout = '';
+    var stderr = '';
 
-    nuget.stdout.on('data', function(message) { log(message, stdout); });
-    nuget.stderr.on('data', function(message) { log(message, stderr); });
+    nuget.stdout.on('data', function(message) { stdout += log(message); });
+    nuget.stderr.on('data', function(message) { stderr += log(message); });
 
     var deferred = Q.defer();
 
     nuget.on('exit', function(code) { 
-        if (code > 0) deferred.reject({ code: code, stdout: stdout, stderr: stderr });
+        if (code > 8) deferred.reject({ 
+            code: code, 
+            stdout: stdout, 
+            stderr: stderr });
         else deferred.resolve(stdout);
     });    
 

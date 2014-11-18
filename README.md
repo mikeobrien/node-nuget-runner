@@ -44,7 +44,7 @@ var nuget = Nuget({ verbosity: 'quiet' });
 nuget.push(..., { verbosity: 'detailed' })
 ```
 
-All commands return a [promise](https://github.com/kriskowal/q). Success returns `stdout` as an array:
+All commands return a [promise](https://github.com/kriskowal/q). Success returns `stdout`:
 
 ```js
 nuget.push(...)
@@ -53,7 +53,7 @@ nuget.push(...)
     });
 ```
 
-Failure returns and error object that indicates the return code and both `stdout` and `stderr` as an array:
+Failure returns and error object that indicates the return code and both `stdout` and `stderr`:
 
 ```js
 nuget.push(...)
