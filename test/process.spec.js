@@ -1,14 +1,14 @@
 var expect = require('chai').expect,
     path = require('path'),
-    runner = require('../src/runner');
+    process = require('../src/process');
 
 function run(args) {
-    return runner({ 
+    return process({ 
         path: path.join(__dirname, 'ConsoleApp.exe'), 
         args: args });   
 }
 
-describe('runner', function() {
+describe('process', function() {
 
     it('should successfully execute and pass args', function(done) {
         run([ 'echo', 'oh', 'hai' ])
@@ -50,7 +50,7 @@ describe('runner', function() {
                 expect(error.code).to.equal(1);
                 expect(error.stdout).to.be.empty();
                 expect(error.stderr.replace(/\s/g, ''))
-                    .to.deep.equal(exceptionMessage);
+                    .to.equal(exceptionMessage.replace(/\s/g, ''));
             })
             .done(function() { done(); });
     });

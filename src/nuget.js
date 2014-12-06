@@ -1,9 +1,9 @@
 var commands = require('./commands'),
-    processRunner = require('./runner');
+    process = require('./process');
 
 module.exports = function(defaults, runner) {
     var command = commands(defaults);
-    var run = runner || processRunner;
+    var run = runner || process;
     return {
         config: function(settings, options) { return run(command('config', [ settings ], options)); }, 
         delete: function(packageId, packageVersion, options) { 

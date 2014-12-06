@@ -30,7 +30,7 @@ module.exports = function run(command) {
     var deferred = Q.defer();
 
     nuget.on('exit', function(code) { 
-        if (code > 8) deferred.reject({ 
+        if (code > 0) deferred.reject({ 
             code: code, 
             stdout: stdout, 
             stderr: stderr });
