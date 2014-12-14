@@ -53,14 +53,12 @@ nuget.push(...)
     });
 ```
 
-Failure returns and error object that indicates the return code and both `stdout` and `stderr`:
+Failure returns the error:
 
 ```js
 nuget.push(...)
     .fail(function(error) {
-        console.log(error.code);
-        console.log(error.stdout);
-        console.log(error.stderr);
+        console.log(error.message);
     });
 ```
 

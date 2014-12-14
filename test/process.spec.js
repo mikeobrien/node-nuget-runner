@@ -29,15 +29,13 @@ describe('process', function() {
     it('should fail on non zero exit code', function(done) {
         run([ 'return', '5' ])
             .fail(function(error) {
-                expect(error.code).to.equal(5);
-                expect(error.stdout).to.deep.equal('Error 5');
-                expect(error.stderr).to.be.empty();
+                expect(error.message).to.equal('Nuget failed: Error 5');
             })
             .done(function() { done(); });
     });
 
     var exceptionMessage =
-        "UnhandledException:System.Exception:ohnoes!" + 
+        "Nuget failed: UnhandledException:System.Exception:ohnoes!" + 
         "at ConsoleApp.Program.Main(System.String[]args) " +
         "[0x00000]in<filename unknown>:0" +
         "[ERROR]FATALUNHANDLEDEXCEPTION:System.Exception:" +
@@ -47,9 +45,7 @@ describe('process', function() {
     it('should fail on exception', function(done) {
         run([ 'exception', 'oh noes!' ])
             .fail(function(error) {
-                expect(error.code).to.equal(1);
-                expect(error.stdout).to.be.empty();
-                expect(error.stderr.replace(/\s/g, ''))
+                expect(error.message.replace(/\s/g, ''))
                     .to.equal(exceptionMessage.replace(/\s/g, ''));
             })
             .done(function() { done(); });
