@@ -1,6 +1,6 @@
 # nuget-runner
 
-[![npm version](http://img.shields.io/npm/v/nuget-runner.svg)](https://npmjs.org/package/nuget-runner) [![build status](http://img.shields.io/travis/mikeobrien/node-nuget-runner.svg)](https://travis-ci.org/mikeobrien/node-nuget-runner) [![Dependency Status](http://img.shields.io/david/mikeobrien/node-nuget-runner.svg)](https://david-dm.org/mikeobrien/node-nuget-runner) [![npm downloads](http://img.shields.io/npm/dm/nuget-runner.svg)](https://npmjs.org/package/nuget-runner) 
+[![npm version](http://img.shields.io/npm/v/nuget-runner.svg?style=flat)](https://npmjs.org/package/nuget-runner) [![build status](http://img.shields.io/travis/mikeobrien/node-nuget-runner.svg?style=flat)](https://travis-ci.org/mikeobrien/node-nuget-runner) [![Dependency Status](http://img.shields.io/david/mikeobrien/node-nuget-runner.svg?style=flat)](https://david-dm.org/mikeobrien/node-nuget-runner) [![npm downloads](http://img.shields.io/npm/dm/nuget-runner.svg?style=flat)](https://npmjs.org/package/nuget-runner) 
 
 Node wrapper for [Nuget](http://docs.nuget.org/docs/start-here/installing-nuget).
 
