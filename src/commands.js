@@ -183,6 +183,7 @@ module.exports = function(defaults) {
     return function(command, args, options) {
         options = _.extend({}, defaults, options);
         return {
+            options: options,
             path: options.nugetPath,
             args: commands[command].apply(this, args.concat(options))
         }
