@@ -29,15 +29,19 @@ module.exports = function run(command) {
 
     var deferred = Q.defer();
 
-    nuget.on('exit', function(code) { 
-        if (code > 0) {
-            var error = stderr || stdout;
-            var message = 'Nuget failed' + (error ? 
-                ': ' + error : '.');
-            deferred.reject(new Error(message));
-        }
-        else deferred.resolve(stdout);
-    });    
+    nuget
+        .on('error', function (err) {
+            deferred.reject(err);
+        })
+        .on('exit', function(code) { 
+            if (code > 0) {
+                var error = stderr || stdout;
+                var message = 'Nuget failed' + (error ? 
+                    ': ' + error : '.');
+                deferred.reject(new Error(message));
+            }
+            else deferred.resolve(stdout);
+        });
 
     return deferred.promise;
 };
