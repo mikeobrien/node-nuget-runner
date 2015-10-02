@@ -2,7 +2,7 @@ var child = require('child_process'),
     Q = require('q');
 
 module.exports = function run(command) {
-
+    command.options = command.options || {};
     var windows = process.platform === 'win32';
     var path = windows ? command.path : 'mono';
     var args =  command.args;
@@ -13,7 +13,9 @@ module.exports = function run(command) {
     console.log(path + ' ' + args.join(' '));
     console.log();
 
-    var nuget = child.spawn(path, args);
+    var nuget = child.spawn(path, args, {
+        cwd: command.options.cwd
+    });
 
     var log = function(message) { 
         message = message.toString('utf8');
@@ -29,7 +31,7 @@ module.exports = function run(command) {
 
     var deferred = Q.defer();
 
-    nuget
+     nuget
         .on('error', function (err) {
             deferred.reject(err);
         })
@@ -41,7 +43,7 @@ module.exports = function run(command) {
                 deferred.reject(new Error(message));
             }
             else deferred.resolve(stdout);
-        });
+        });  
 
     return deferred.promise;
 };
