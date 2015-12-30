@@ -9,7 +9,7 @@ module.exports = function run(command) {
 
     if (!windows) command.args.unshift(command.path);
 
-    if (options.verbosity !== 'quiet') {
+    if (command.options.verbosity !== 'quiet') {
         console.log();
         console.log(path + ' ' + args.join(' '));
         console.log();
