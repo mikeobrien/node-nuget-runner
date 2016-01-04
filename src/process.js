@@ -9,9 +9,11 @@ module.exports = function run(command) {
 
     if (!windows) command.args.unshift(command.path);
 
-    console.log();
-    console.log(path + ' ' + args.join(' '));
-    console.log();
+    if (command.options.verbosity !== 'quiet') {
+        console.log();
+        console.log(path + ' ' + args.join(' '));
+        console.log();
+    }
 
     var nuget = child.spawn(path, args, {
         cwd: command.options.cwd
