@@ -179,12 +179,11 @@ function addNonInteractive(args, options) {
 }
 
 module.exports = function(defaults) {
-    defaults = _.extend({ nugetPath: 'nuget.exe' }, defaults);
     return function(command, args, options) {
         options = _.extend({}, defaults, options);
         return {
             options: options,
-            path: options.nugetPath,
+            path: options.nugetPath || 'nuget.exe',
             args: commands[command].apply(this, args.concat(options))
         }
     }
