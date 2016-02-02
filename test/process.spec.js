@@ -35,12 +35,7 @@ describe('process', function() {
     });
 
     var exceptionMessage =
-        "Nuget failed: UnhandledException:System.Exception:ohnoes!" + 
-        "at ConsoleApp.Program.Main(System.String[]args) " +
-        "[0x00000]in<filename unknown>:0" +
-        "[ERROR]FATALUNHANDLEDEXCEPTION:System.Exception:" +
-        "ohnoes! atConsoleApp.Program.Main(System.String[] " +
-        "args)[0x00000]in<filename unknown>:0";
+        "Nugetfailed:UnhandledException:System.Exception:ohnoes!atConsoleApp.Program.Main(String[]args)";
 
     it('should fail on exception', function(done) {
         run([ 'exception', 'oh noes!' ])
