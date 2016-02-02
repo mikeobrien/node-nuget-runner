@@ -1,6 +1,6 @@
 {
   "name": "nuget-runner",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Wrapper for nuget.",
   "homepage": "https://github.com/mikeobrien/node-nuget-runner",
   "main": "src/nuget.js",
