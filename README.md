@@ -474,5 +474,29 @@ nuget.update({
 });
 ```
 
+## Add
+*(nuget.exe v3.3 and above)* Adds the provided package to your package source in a hierarchical layout in order to provide significant performance benefits. See [here](https://docs.nuget.org/consume/command-line-reference#add-command) for more details.
+
+```js
+nuget.add({
+
+    // Specifies the path to the package to be added and the package source, 
+    // which is a folder or UNC share, to which the nupkg will be added. Http 
+    // sources are not supported.
+    nupkg: 'path/to/file.nupkg',
+
+    // Specifies the folderBasedPackageSource to which the nupkg will be 
+    // added. Http sources are not supported.
+    source: '\\\\server\\path',
+
+    // If provided, all the files in the package are added to your package 
+    // source.
+    expand: true,
+
+    verbosity: 'normal|quiet|detailed'
+
+});
+```
+
 ## License
 MIT License

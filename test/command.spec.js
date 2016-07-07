@@ -374,4 +374,28 @@ describe('nuget', function() {
 
     });
 
+    describe('should build add command', function() {
+        it('without options', function() {
+            expect(create().add().args).to.deep.equal(
+                ['add'].concat(nonInteractive));
+        });
+
+        it('with options', function() {
+            expect(create().add({
+                    nupkg: 'path/to/nuspec',
+                    source: '\\\\nuget\\serverpath',
+                    expand: true,
+                    verbosity: 'verbose'
+                }).args)
+                .to.deep.equal(
+                    ['add', 'path/to/nuspec',
+                        '-Source', '\\\\nuget\\serverpath',
+                        '-Expand'
+                    ]
+                    .concat(verbosity, nonInteractive));
+        });
+    });
+
+
+
 });

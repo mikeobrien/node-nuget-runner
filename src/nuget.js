@@ -18,6 +18,7 @@ module.exports = function(defaults, runner) {
         setApiKey: function(apiKey, options) { return run(command('setApiKey', [ apiKey ], options)); }, 
         sources: function(source, action, options) { return run(command('sources', [ source, action ], options)); }, 
         spec: function(options) { return run(command('spec', [], options)); }, 
-        update: function(options) { return run(command('update', [], options)); }            
+        update: function(options) { return run(command('update', [], options)); },
+        add: function(options) { return run(command('add', [], options)); }
     }
 };
