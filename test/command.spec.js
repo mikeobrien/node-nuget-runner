@@ -395,7 +395,4 @@ describe('nuget', function() {
                     .concat(verbosity, nonInteractive));
         });
     });
-
-
-
 });
