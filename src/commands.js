@@ -158,6 +158,16 @@ var commands = {
         addConfigFile(args, options);
         addNonInteractive(args);
         return args;
+    },
+
+    add: function(options) {
+        var args = [ 'add' ];
+        if (options.nupkg) args.push(options.nupkg);
+        if (options.source) args.push('-Source', options.source);
+        if (options.expand) args.push('-Expand');
+        addVerbosity(args, options);
+        addNonInteractive(args);
+        return args;
     }
     
 }
